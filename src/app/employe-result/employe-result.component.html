@@ -1,0 +1,37 @@
+<app-admin-navbar></app-admin-navbar>
+
+
+<div class="results-container">
+    <h2>Employee Results</h2>
+  
+    <div *ngIf="isLoading" class="loading">Loading results...</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+    <table *ngIf="!isLoading && !errorMessage && employeeResults.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Course Name</th>
+          <th>Date&Time</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of employeeResults">
+          <td>{{ result.employeeEmail }}</td>
+          <td>{{ result.courseName }}</td>
+          <td>{{ result.submittedTime}}</td>
+          <td>{{ result.score }}</td>
+          <td [ngClass]="{'pass': result.result}">
+            {{ result.result }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!isLoading && !errorMessage && employeeResults.length === 0" class="no-data">
+      No results available.
+    </div>
+  </div>
+  

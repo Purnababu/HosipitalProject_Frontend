@@ -1,59 +1,75 @@
+<div class="purchase-history container">
+  <h2 class="text-center">{{ cousename }}</h2>
 
-<div class="course-container">
-    <h2>Select a Module</h2>
-    <div class="course-grid">
-        <div *ngFor="let module of modules" class="module-card" (click)="openModule(module)">
-            <h3>{{ module.title }}</h3>
-            <p>{{ module.description }}</p>
+  <!-- Module List -->
+  <div *ngIf="!selectedModule" class="row mt-4">
+    <div class="col-md-6" *ngFor="let module of modules">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ module.title }}</h5>
+          <p class="card-text">{{ module.description }}</p>
+          <button class="btn btn-primary" (click)="openModule(module)">Open</button>
+          <button class="btn btn-primary" (click)="Backtohome(module)">Back</button>
         </div>
+      </div>
     </div>
-</div>
-
-<!-- Modal for slides and quiz -->
-<div class="modal" *ngIf="selectedModule">
-    <div class="modal-content">
-        <span class="close-btn" (click)="closeModule()">&times;</span>
-
-        <!-- Quiz Section -->
-        <div *ngIf="showQuiz">
-            <h2>{{ selectedModule.title }} - Quiz</h2>
-            <div *ngFor="let question of selectedModule.quiz; let i = index">
-                <p>{{ i + 1 }}. {{ question.question }}</p>
-                <label *ngFor="let option of question.options">
-                    <input type="radio" name="question-{{i}}" [value]="option" [(ngModel)]="userAnswers[i]">
-                    {{ option }}
-                </label>
-            </div>
-            <button (click)="submitQuiz()" [disabled]="quizSubmitted">Submit Quiz</button>
-
-            <div *ngIf="quizSubmitted" class="quiz-result">
-                <h3>Quiz Completed!</h3>
-                <p>Your Score: {{ quizScore }} / {{ selectedModule.quiz.length }}</p>
-                <p *ngIf="quizScore > 2">🎉 Great Job! You passed!</p>
-                <p *ngIf="quizScore <= 2">😟 Try Again to Improve!</p>
-            </div>
-        </div>
-
-        <!-- Slide Section -->
-        <div *ngIf="!showQuiz">
-            <h2>{{ selectedModule.title }} - Slide {{ currentSlide + 1 }} of {{ selectedModule.slides.length }}</h2>
-            <p>{{ selectedModule.slides[currentSlide] }}</p>
-
-            <div class="slide-nav">
-                <button (click)="prevSlide()" [disabled]="currentSlide === 0">Previous</button>
-                <button (click)="nextSlide()" [disabled]="currentSlide === selectedModule.slides.length - 1">Next</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- -------------------- -->
-<div class="sidebar">
-    <button class="nav-btn" (click)="goBack()" >
-      <i class="fas fa-arrow-left"></i> Back
-    </button>
   </div>
-  
+
+  <!-- Slides View -->
+  <div *ngIf="selectedModule && !showQuiz" class="mt-4">
+    <h4>{{ selectedModule.title }}</h4>
+    <div class="alert alert-info">
+      {{ selectedModule.slides[currentSlide] }}
+    </div>
+    <div class="d-flex justify-content-between mt-3">
+      <button class="btn btn-secondary" (click)="prevSlide()" [disabled]="currentSlide === 0">Previous</button>
+      <button class="btn btn-secondary" (click)="nextSlide()" [disabled]="currentSlide === selectedModule.slides.length - 1">Next</button>
+      <button class="btn btn-danger" (click)="closeModule()">Close</button>
+    </div>
+  </div>
+
+  <!-- Terms and Conditions Modal -->
+  <div *ngIf="showTermsModal" class="modal-overlay">
+    <div class="modal-content">
+      <h5>Terms and Conditions</h5>
+      <p>Please read and accept the terms before starting the quiz.</p>
+      <ul>
+        <li>Quiz duration is 30 seconds.</li>
+        <li>No back navigation once the quiz starts.</li>
+        <li>Quiz will auto-submit when time runs out.</li>
+      </ul>
+      <button class="btn btn-success" (click)="acceptTerms()">Accept</button>
+    </div>
+  </div>
+
+  <!-- Quiz View -->
+  <div *ngIf="quizStarted && showQuiz" class="mt-4">
+    <h4>Final Assessment Quiz</h4>
+    <p class="text-danger"><strong>Time Left:</strong> {{ timeLeft }}s</p>
+    <form (ngSubmit)="submitQuiz()">
+      <div *ngFor="let q of selectedModule.quiz; let i = index" class="mb-3">
+        <p>{{ i + 1 }}. {{ q.question }}</p>
+        <div *ngFor="let opt of q.options" class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            [name]="'q' + i"
+            [value]="opt"
+            [(ngModel)]="userAnswers[i]"
+            [disabled]="quizSubmitted"
+            required
+          />
+          <label class="form-check-label">{{ opt }}</label>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="quizSubmitted">Submit Quiz</button>
+    </form>
+  </div>
+
+  <!-- Quiz Result -->
+  <div *ngIf="quizSubmitted" class="alert alert-success mt-3">
+    <p><strong>Quiz Submitted!</strong></p>
+    <p>Your Score: {{ quizScore }} / {{ selectedModule.quiz.length }}</p>
+    <button class="btn btn-dark" (click)="closeModule()">Back to Modules</button>
+  </div>
+</div>

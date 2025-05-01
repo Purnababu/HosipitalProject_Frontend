@@ -13,8 +13,8 @@ import { QuizResult } from '../quiz-result';
 export class StudentServiceService {
 
   
-  // private apiUrl = 'http://localhost:8080';
-  private apiUrl = 'https://backendddd-ebcdd02b0752.herokuapp.com';
+  private apiUrl = 'http://localhost:8080';
+  // private apiUrl = 'https://backendddd-ebcdd02b0752.herokuapp.com';
 
   
 
@@ -44,5 +44,13 @@ export class StudentServiceService {
   getAllEmployeeResults(): Observable<QuizResult[]> {
     return this.http.get<QuizResult[]>(`${this.apiUrl}/getallresults`);
   }
+
+  
+ // Check if submission exists
+ checkSubmissionStatus(email: string, course: string): Observable<string> {
+  return this.http.get(`${this.apiUrl}/check?employeeEmail=${email}&courseName=${course}`, {
+    responseType: 'text'
+  });
+}
 
 }

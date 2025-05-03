@@ -33,28 +33,35 @@ Backtohome(_t8: { title: string; description: string; slides: string[]; quiz?: u
       title: 'Module 1: COVID-19 Training',
       description: 'Learn about COVID-19 safety measures.',
       slides: [
-        'Introduction to COVID-19...',
-        'Symptoms & Prevention...',
-        'Social Distancing Guidelines...',
-        'PPE Usage...',
-        'Vaccination Importance...',
-        'Handling COVID-19 in the Workplace...',
-        'Thank You...'
+        'Introduction to COVID-19 – A contagious virus first identified in 2019.',
+        'How it Spreads – Through droplets, surface contact, and close contact.',
+        'Symptoms – Fever, dry cough, fatigue, and loss of taste or smell.',
+        'Prevention – Wash hands, avoid face touching, use sanitizer regularly.',
+        'Social Distancing – Maintain at least 6 feet distance from others.',
+        'Mask Guidelines – Wear a mask in public and shared indoor spaces.',
+        'PPE Usage – Use gloves, face shields, and masks properly at work.',
+        'Vaccination – Reduces severity and helps build herd immunity.',
+        'Workplace Protocols – Isolate if sick, sanitize surfaces, monitor health.',
+        'Mental Wellness – Practice self-care, manage stress, seek support.',
+        'Emergency Contact – Know your local COVID helplines and guidelines.',
+        'Final Tips – Stay updated, act responsibly, protect others.',
+        'Thank You – Together we can stop the spread. Stay safe!'
       ]
     },
     {
       title: 'Module 2: Clinical Governance',
       description: 'Best practices for clinical governance.',
       slides: [
-        'What is Clinical Governance...',
-        'Patient Safety & Risk Management...',
-        'Roles in Clinical Governance...',
-        'Compliance & Regulations...',
-        'Quality Assurance...',
-        'Handling Medical Records...',
-        'Thank You for participating...'
+        'What is Clinical Governance – A framework for improving quality and safety in healthcare.',
+        'Patient Safety & Risk Management – Preventing harm and managing clinical risks effectively.',
+        'Roles in Clinical Governance – Responsibilities of staff, management, and stakeholders.',
+        'Compliance & Regulations – Adhering to legal, ethical, and professional standards.',
+        'Quality Assurance – Ensuring high standards through audits, reviews, and feedback.',
+        'Handling Medical Records – Secure, accurate, and confidential record management.',
+        'Thank You for participating – Commitment to excellence improves patient care.'
       ]
     },
+    
     {
       title: 'Final Assessment Quiz',
       description: 'Test your knowledge on the modules.',
@@ -229,6 +236,22 @@ Backtohome(_t8: { title: string; description: string; slides: string[]; quiz?: u
   }
   
   
-  
+  // ------------------------------------------------------
+
+  showModal = false;
+
+  video = {
+    title: 'Practice Video: Angular Modal Example',
+    url: 'https://www.w3schools.com/html/mov_bbb.mp4'  // Sample video URL
+  };
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
 
 }

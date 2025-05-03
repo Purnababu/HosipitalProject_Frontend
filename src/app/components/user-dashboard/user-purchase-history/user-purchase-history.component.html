@@ -73,3 +73,25 @@
     <button class="btn btn-dark" (click)="closeModule()">Back to Modules</button>
   </div>
 </div>
+
+
+
+
+
+
+<!-- video-modal.component.html -->
+<div class="container text-center mt-5">
+  <button class="btn btn-primary" (click)="openModal()">Watch Video</button>
+</div>
+
+<!-- Video Modal -->
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal-content">
+    <button class="close-btn" (click)="closeModal()">×</button>
+    <h5 class="mb-3">{{ video.title }}</h5>
+    <video controls class="video-box">
+      <source [src]="video.url" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>

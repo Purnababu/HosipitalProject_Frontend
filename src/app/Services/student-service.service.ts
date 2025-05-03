@@ -13,8 +13,8 @@ import { QuizResult } from '../quiz-result';
 export class StudentServiceService {
 
   
-  private apiUrl = 'http://localhost:8080';
-  // private apiUrl = 'https://backendddd-ebcdd02b0752.herokuapp.com';
+  // private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'https://backendddd-ebcdd02b0752.herokuapp.com';
 
   
 

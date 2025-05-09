@@ -52,24 +52,32 @@ const routes: Routes = [
     {path: 'index-2', component: HomeDemoTwoComponent},
     {path: 'index-3', component: HomeDemoThreeComponent},
     {path: 'courses', component: CoursesPageComponent},
+
+    //remaining courses 
+    
     {path: 'courses-details', component: CoursesDetailsPageComponent},
-    {path: 'about', component: AboutPageComponent},
-    {path: 'instructors', component: InstructorsPageComponent},
-    {path: 'instructor-profile', component: InstructorsProfilePageComponent},
-    {path: 'become-an-instructor', component: BecomeAnInstrutorPageComponent},
-    {path: 'events', component: EventsPageComponent},
-    {path: 'event-details', component: EventsDetailsPageComponent},
-    {path: 'zoom-meetings', component: ZoomMeetingsPageComponent},
+
+
+    {path: 'cme', component: AboutPageComponent},
+    {path: 'cshh', component: InstructorsPageComponent},
+    {path: 'cs', component: InstructorsProfilePageComponent},
+    {path: 'dse', component: BecomeAnInstrutorPageComponent},
+    {path: 'ds', component: EventsPageComponent},
+    {path: 'drk', component: EventsDetailsPageComponent}, 
+    {path: 'efa', component: FaqPageComponent},
+    {path: 'edd', component: PrivacyPolicyPageComponent},
+    {path: 'fa', component: TermsConditionsPageComponent},
+    {path: 'fsa', component: PricingPageComponent},
+    {path: 'hs', component: BlogPageComponent},
+    {path: 'ipc', component: BlogDetailsPageComponent},
+    {path: 'mh', component: ComingSoonPageComponent},
+    {path: 'ms', component: ContactPageComponent},
+    {path: 'sp', component: ZoomMeetingsPageComponent},
+    {path: 'sc', component: InstructorPurchaseHistoryComponent},
+    {path: 'ss', component: InstructorEarningsComponent},
+    {path: 'sh', component: InstructorWithdrawComponent},
     {path: 'login', component: LoginPageComponent},
     {path: 'register', component: RegisterPageComponent},
-    {path: 'faq', component: FaqPageComponent},
-    {path: 'privacy-policy', component: PrivacyPolicyPageComponent},
-    {path: 'terms-conditions', component: TermsConditionsPageComponent},
-    {path: 'pricing', component: PricingPageComponent},
-    {path: 'blog', component: BlogPageComponent},
-    {path: 'blog-details', component: BlogDetailsPageComponent},
-    {path: 'coming-soon', component: ComingSoonPageComponent},
-    {path: 'contact', component: ContactPageComponent},
 
     // Admin dashboard
     {path: 'admin-dashboard', component: AdminDashboardComponent,canActivate:[adminGuard]},
@@ -87,7 +95,7 @@ const routes: Routes = [
 
    //Hospital coursess componentsss
     {path: 'covid19course', component: UserPurchaseHistoryComponent},
-    {path: 'cliniclagovernance', component: UserReviewsComponent},
+    {path: 'cliniclagovernance', component: UserReviewsComponent },
     {path : 'empre' , component:EmployeResultComponent},
 
 
@@ -106,10 +114,7 @@ const routes: Routes = [
     {path: 'instructor-dashboard-profile', component: InstructorProfileComponent},
     {path: 'instructor-courses', component: InstructorCoursesComponent},
     {path: 'add-courses', component: InstructorAddCoursesComponent},
-    {path: 'instructor-purchase-history', component: InstructorPurchaseHistoryComponent},
-    {path: 'instructor-earnings', component: InstructorEarningsComponent},
-    {path: 'instructor-withdraw', component: InstructorWithdrawComponent},
-    {path: 'instructor-students', component: InstructorStudentsComponent},
+    
     {path: 'instructor-settings', component: InstructorSettingsComponent},
 
     {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list

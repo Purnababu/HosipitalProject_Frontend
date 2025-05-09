@@ -63,7 +63,7 @@ import { UserCoursesComponent } from './components/user-dashboard/user-courses/u
 import { UserProfileComponent } from './components/user-dashboard/user-profile/user-profile.component';
 import { UserPurchaseHistoryComponent } from './components/user-dashboard/user-purchase-history/user-purchase-history.component';
 import { UserSettingsComponent } from './components/user-dashboard/user-settings/user-settings.component';
-import { UserReviewsComponent } from './components/user-dashboard/user-reviews/user-reviews.component';
+
 import { InstructorDashboardComponent } from './components/instructor-dashboard/instructor-dashboard/instructor-dashboard.component';
 import { InstructorNavbarComponent } from './components/instructor-dashboard/instructor-navbar/instructor-navbar.component';
 import { InstructorCoursesComponent } from './components/instructor-dashboard/instructor-courses/instructor-courses.component';
@@ -78,6 +78,9 @@ import{HTTP_INTERCEPTORS, HttpClientModule} from'@angular/common/http';
 import { AuthInterceptorInterceptor } from './Guards/auth-interceptor.interceptor';
 import { ModuleSelectionComponentComponent } from './components/module-selection-component/module-selection-component.component';
 import { EmployeResultComponent } from './employe-result/employe-result.component';
+import { UserReviewsComponent } from './components/user-dashboard/user-reviews/user-reviews.component';
+
+
 @NgModule({
     declarations: [
         AppComponent,

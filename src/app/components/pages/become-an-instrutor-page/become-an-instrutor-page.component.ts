@@ -11,11 +11,6 @@ export class BecomeAnInstrutorPageComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    // Tabs
-    currentTab = 'tab1';
-    switchTab(event: MouseEvent, tab: string) {
-        event.preventDefault();
-        this.currentTab = tab;
-    }
+   
 
 }
